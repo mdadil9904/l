@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Love Diary ❤️</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+  
   <style>
     * {
       margin: 0;
@@ -43,7 +45,7 @@
       text-align: center;
       padding: 30px;
       transform-origin: left;
-      transition: transform 1s ease;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
       cursor: pointer;
       /* GLASS EFFECT */
       background: rgba(255, 255, 255, 0.6);
@@ -53,15 +55,15 @@
 
     /* COLORS */
     .cover { background: linear-gradient(135deg, #ff9a9e, #fad0c4); color: white; }
-    .p1 { background: rgba(255, 240, 245, 0.7); }
-    .p2 { background: rgba(252, 228, 236, 0.7); }
-    .p3 { background: rgba(243, 229, 245, 0.7); }
-    .p4 { background: rgba(232, 245, 233, 0.7); }
-    .p5 { background: rgba(227, 242, 253, 0.7); }
-    .p6 { background: rgba(255, 248, 225, 0.7); }
-    .p7 { background: rgba(240, 248, 255, 0.7); }
-    .p8 { background: rgba(245, 245, 245, 0.7); }
-    .p9 { background: rgba(255, 235, 238, 0.7); }
+    .p1 { background: rgba(255, 240, 245, 0.9); }
+    .p2 { background: rgba(252, 228, 236, 0.9); }
+    .p3 { background: rgba(243, 229, 245, 0.9); }
+    .p4 { background: rgba(232, 245, 233, 0.9); }
+    .p5 { background: rgba(227, 242, 253, 0.9); }
+    .p6 { background: rgba(255, 248, 225, 0.9); }
+    .p7 { background: rgba(240, 248, 255, 0.9); }
+    .p8 { background: rgba(245, 245, 245, 0.9); }
+    .p9 { background: rgba(255, 235, 238, 0.9); }
 
     /* HEADINGS */
     h1, h2 {
@@ -85,23 +87,12 @@
       transform: rotateY(-180deg);
     }
 
-    /* STACK */
-    .page:nth-child(1) { z-index: 10; }
-    .page:nth-child(2) { z-index: 9; }
-    .page:nth-child(3) { z-index: 8; }
-    .page:nth-child(4) { z-index: 7; }
-    .page:nth-child(5) { z-index: 6; }
-    .page:nth-child(6) { z-index: 5; }
-    .page:nth-child(7) { z-index: 4; }
-    .page:nth-child(8) { z-index: 3; }
-    .page:nth-child(9) { z-index: 2; }
-    .page:nth-child(10) { z-index: 1; }
-
     /* VIDEO */
     video {
       width: 100%;
       border-radius: 12px;
       margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     /* MOBILE */
@@ -185,18 +176,24 @@
 
   <script>
     const pages = document.querySelectorAll('.page');
+    let totalPages = pages.length;
 
+    // Fix: Dynamically handle the stacking order (z-index)
     pages.forEach((page, index) => {
+      // Set the initial stacking order (Cover on top, last page on bottom)
+      page.style.zIndex = totalPages - index;
+
       page.addEventListener('click', () => {
-        // BACKWARD
         if (page.classList.contains('flipped')) {
-          for (let i = index; i < pages.length; i++) {
-            pages[i].classList.remove('flipped');
-          }
-        }
-        // FORWARD
-        else {
+          // UN-FLIP (Turn page backward to the right)
+          page.classList.remove('flipped');
+          // Restore its original spot on top of the right-side stack
+          page.style.zIndex = totalPages - index;
+        } else {
+          // FLIP (Turn page forward to the left)
           page.classList.add('flipped');
+          // Drop it to the bottom of the left-side stack so the next page sits on it
+          page.style.zIndex = index;
         }
       });
     });
