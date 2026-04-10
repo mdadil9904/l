@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Love Diary ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fceff9, #e0f7fa);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* BOOK */
+    .book {
+      width: 90%;
+      max-width: 360px;
+      height: 540px;
+      position: relative;
+      perspective: 2500px;
+    }
+
+    /* PAGE */
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      transform-origin: left;
+      transition: transform 1s ease;
+      cursor: pointer;
+      /* GLASS EFFECT */
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    /* COLORS */
+    .cover { background: linear-gradient(135deg, #ff9a9e, #fad0c4); color: white; }
+    .p1 { background: rgba(255, 240, 245, 0.7); }
+    .p2 { background: rgba(252, 228, 236, 0.7); }
+    .p3 { background: rgba(243, 229, 245, 0.7); }
+    .p4 { background: rgba(232, 245, 233, 0.7); }
+    .p5 { background: rgba(227, 242, 253, 0.7); }
+    .p6 { background: rgba(255, 248, 225, 0.7); }
+    .p7 { background: rgba(240, 248, 255, 0.7); }
+    .p8 { background: rgba(245, 245, 245, 0.7); }
+    .p9 { background: rgba(255, 235, 238, 0.7); }
+
+    /* HEADINGS */
+    h1, h2 {
+      font-family: 'Allura', cursive;
+      font-size: 34px;
+      color: #d63384;
+    }
+
+    /* TEXT */
+    p {
+      margin-top: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+      max-width: 280px;
+    }
+
+    /* FLIP */
+    .page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    /* STACK */
+    .page:nth-child(1) { z-index: 10; }
+    .page:nth-child(2) { z-index: 9; }
+    .page:nth-child(3) { z-index: 8; }
+    .page:nth-child(4) { z-index: 7; }
+    .page:nth-child(5) { z-index: 6; }
+    .page:nth-child(6) { z-index: 5; }
+    .page:nth-child(7) { z-index: 4; }
+    .page:nth-child(8) { z-index: 3; }
+    .page:nth-child(9) { z-index: 2; }
+    .page:nth-child(10) { z-index: 1; }
+
+    /* VIDEO */
+    video {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 480px) {
+      .book { height: 500px; }
+      h1, h2 { font-size: 28px; }
+      p { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book">
+
+    <div class="page cover">
+      <h1>My Love Diary 💕</h1>
+      <p>Every page is written with my heart ❤️</p>
+    </div>
+
+    <div class="page p1">
+      <h2>Dear Love</h2>
+      <p>You are the most beautiful part of my life 🌸<br>
+        Being with you feels like a dream I never want to wake up from ✨</p>
+    </div>
+
+    <div class="page p2">
+      <h2>My Heart</h2>
+      <p>Your smile makes everything better 😊<br>
+        You are the reason my days feel so special ❤️</p>
+    </div>
+
+    <div class="page p3">
+      <h2>My World</h2>
+      <p>When I am with you, nothing else matters 🌍<br>
+        You are my happiness, my peace, my everything 💕</p>
+    </div>
+
+    <div class="page p4">
+      <h2>Forever</h2>
+      <p>No matter what happens, I will always stand by you ❤️<br>
+        Because loving you is the best thing in my life 💖</p>
+    </div>
+
+    <div class="page p5">
+      <h2>Special You</h2>
+      <p>You are not just special…<br>
+        you are my whole world 🌸<br>
+        I can’t imagine life without you ❤️</p>
+    </div>
+
+    <div class="page p6">
+      <h2>My Promise</h2>
+      <p>I promise to love you more every day 💕<br>
+        To stand with you in every moment of life ❤️</p>
+    </div>
+
+    <div class="page p7">
+      <h2>My Dream</h2>
+      <p>My dream is simple…<br>
+        just you and me together forever 💖<br>
+        nothing else matters ✨</p>
+    </div>
+
+    <div class="page p8">
+      <h2>Our Memory 🎥</h2>
+      <p>This video holds my heart ❤️</p>
+      <video controls>
+        <source src="video/VN20260410_233811.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="page p9">
+      <h1>I LOVE YOU MOTI SOO MUCH ❤️</h1>
+      <p>
+        More than words… more than time…<br>
+        more than anything in this world 💕
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+
+    pages.forEach((page, index) => {
+      page.addEventListener('click', () => {
+        // BACKWARD
+        if (page.classList.contains('flipped')) {
+          for (let i = index; i < pages.length; i++) {
+            pages[i].classList.remove('flipped');
+          }
+        }
+        // FORWARD
+        else {
+          page.classList.add('flipped');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
